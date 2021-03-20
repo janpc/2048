@@ -1,0 +1,51 @@
+@use "../helpers" as *;
+
+.board {
+  $boardSide: min(90vw, 90vh);
+  $cellMargin: 10px;
+
+  width: $boardSide;
+  height: $boardSide;
+  background-color: #027353;
+  box-shadow: inset 0 0 20px #000;
+  border-radius: 10px;
+  padding: $cellMargin;
+  cursor: pointer;
+
+  &__row {
+    width: 100%;
+    height: calc(100% / 4);
+    display: flex;
+
+    &__cell {
+      @extend %noSelect;
+      height: calc(100% - ($cellMargin * 2));
+      width: calc(100%);
+      margin: $cellMargin;
+      border-radius: 10px;
+      font-size: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 20px #0008;
+      font-family: $mainFont;
+      color: $colorCellText;
+      text-shadow: 0 0 5px #0008;
+      border: 2px solid $colorCellText;
+
+      p {
+        margin: 0;
+      }
+
+      &__0 {
+        box-shadow: 0 0 0 #0000;
+        border: none;
+      }
+      @each $number, $color in $cells {
+        &__#{$number} {
+          background-color: $color;
+        }
+      }
+    }
+  }
+}
