@@ -19,7 +19,7 @@
 
     &__cell {
       @extend %noSelect;
-      height: calc(100% - ($cellMargin * 2));
+      height: calc(100% - (10px * 2));
       width: calc(100%);
       margin: $cellMargin;
       border-radius: 10px;
@@ -32,6 +32,7 @@
       color: $colorCellText;
       text-shadow: 0 0 5px #0008;
       border: 2px solid $colorCellText;
+      animation: newCell 0.5s ease-in-out;
 
       p {
         margin: 0;

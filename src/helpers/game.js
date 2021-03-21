@@ -89,7 +89,9 @@ function compareTwoPositions(options) {
   ) {
     newBoard[pos.x][pos.y] = newBoard[pos.x + diference.x][pos.y + diference.y];
     newBoard[pos.x + diference.x][pos.y + diference.y] = 0;
-  } else if (
+  }
+  
+  if (
     newBoard[pos.x][pos.y] !== 0 &&
     newBoard[pos.x + diference.x][pos.y + diference.y] ===
       newBoard[pos.x][pos.y]
@@ -101,7 +103,7 @@ function compareTwoPositions(options) {
     diference.y = changeDiference(pos.y, diference.y);
 
     if (diference.x !== 0 || diference.y !== 0) {
-      newBoard = compareTwoPositions({ board, pos, diference });
+      newBoard = compareTwoPositions({ board: newBoard, pos, diference });
     }
   }
 
